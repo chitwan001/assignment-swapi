@@ -1,10 +1,23 @@
 import {Character} from "../types/Character.tsx";
 import userImage from '../assets/sampleuser.avif';
-import {Button, Image, Text, ButtonGroup, Card, CardBody, CardFooter, Divider, Heading, Stack} from "@chakra-ui/react";
+import {
+    Button,
+    Image,
+    Text,
+    Card,
+    CardBody,
+    Heading,
+    Stack,
+    Tooltip, HStack
+} from "@chakra-ui/react";
+import {useNavigate} from "react-router-dom";
 
-export default function CharacterCard({info}: { info: Character}) {
+export default function CharacterCard({info}: { info: Character }) {
+    const navigator = useNavigate()
     return (
-        <Card>
+        <Card cursor={"pointer"} onClick={() => {
+            navigator({pathname:'people/1'})
+        }}>
             <CardBody>
                 <Image
                     src={userImage}
@@ -13,22 +26,39 @@ export default function CharacterCard({info}: { info: Character}) {
                 />
                 <Stack mt='6' spacing='3'>
                     <Heading size='md'>{info.name}</Heading>
-                    <Text color='blue.600' fontSize='2xl'>
-                        $450
+                    <Text color='blue.600' fontSize='md'>
+                        {info.birth_year}
+                        {
+                            info.gender !== 'n/a' && (
+                                <>, {info.gender.toLocaleUpperCase()}</>
+                            )
+                        }
                     </Text>
+                    <HStack>
+                        {
+                            info.eye_color !== 'n/a' && (
+                                <Tooltip label={'Eye Color - ' + info.eye_color}>
+                                    <Button backgroundColor={info.eye_color} width={"4px"} borderRadius={8}/>
+                                </Tooltip>
+                            )
+                        }
+                        {
+                            info.hair_color !== 'n/a' && (
+                                <Tooltip label={'Hair Color - ' + info.hair_color}>
+                                    <Button backgroundColor={info.hair_color} width={"4px"} borderRadius={8}/>
+                                </Tooltip>
+                            )
+                        }
+                        {
+                            info.skin_color !== 'n/a' && (
+                                <Tooltip label={'Skin Color - ' + info.skin_color}>
+                                    <Button backgroundColor={info.skin_color} width={"4px"} borderRadius={8}/>
+                                </Tooltip>
+                            )
+                        }
+                    </HStack>
                 </Stack>
             </CardBody>
-            <Divider/>
-            <CardFooter>
-                <ButtonGroup spacing='2'>
-                    <Button variant='solid' colorScheme='blue'>
-                        Buy now
-                    </Button>
-                    <Button variant='ghost' colorScheme='blue'>
-                        Add to cart
-                    </Button>
-                </ButtonGroup>
-            </CardFooter>
         </Card>
     )
 }

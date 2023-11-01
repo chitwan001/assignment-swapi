@@ -54,6 +54,7 @@ export default function CharactersList() {
         if (apiInstance) {
             apiInstance.get("people").then((res) => {
                 const data = res.data.results as Characters
+                console.log(data)
                 setPages(Math.ceil(res.data.count / 10))
                 setCharacters(data)
                 setLoading(false)
