@@ -1,0 +1,107 @@
+#root{
+    display: grid;
+}
+
+.layout{
+    display: grid;
+    grid-template-rows: 65px 1fr 65px;
+    background-color: #e1e1e1;
+    width: 100vw;
+    height: 100vh;
+}
+
+.header{
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+    width: 100%;
+    background-color: black;
+}
+
+.header-title{
+    display: grid;
+    place-self: center;
+    grid-auto-flow: column;
+    gap: 8px;
+}
+
+.starwars-api-title{
+    display: grid;
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+    place-content: center;
+}
+
+.made-with-love{
+    display: grid;
+    color: #fff;
+    font-size: 15px;
+    place-content: center;
+}
+
+.characters-list-parent{
+    display: grid;
+    grid-template-rows: 1fr auto;
+    overflow-y: scroll;
+    padding: 10px;
+}
+
+.characters-list{
+    display: flex;
+    gap: 10px;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.pagination-parent{
+    display: grid;
+    height: 60px;
+    padding: 10px;
+}
+
+.pagination{
+    justify-self: right;
+    align-self: center;
+    display: grid;
+    gap: 10px;
+    grid-template-columns: auto 1fr auto;
+}
+
+.pagenumbers{
+    display: grid;
+    grid-auto-flow: column;
+    gap: 8px;
+}
+
+.page-number{
+    display: grid;
+    width: 40px;
+    place-content: center;
+    height: 40px;
+    border-radius: 4px;
+    padding: 8px;
+    background-color: mediumpurple;
+    color: #fff;
+    cursor: pointer;
+}
+
+.page-number:hover{
+    background-color: #6e50a9;
+}
+
+.page-number-disabled{
+    display: grid;
+    width: 40px;
+    place-content: center;
+    height: 40px;
+    border-radius: 4px;
+    padding: 8px;
+    background-color: rgb(61, 61, 61);
+    color: #fff;
+    cursor: not-allowed;
+}
+
+.list-loader{
+    display: grid;
+    place-self: center;
+}
