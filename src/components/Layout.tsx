@@ -5,7 +5,12 @@ export default function Layout(){
     return(
         <div className={'layout'}>
             <Header/>
-            <Outlet/>
+            <div className={'outlet-parent'}>
+                <div className={'outlet'}>
+                    <Outlet/>
+                </div>
+                <div></div>
+            </div>
         </div>
     )
 }

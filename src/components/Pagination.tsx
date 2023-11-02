@@ -21,7 +21,7 @@ export default function Pagination({pages, currentPage, getPeopleList}: { pages:
     return (
         <div className={'pagination-parent'}>
             <div className={'pagination'}>
-                <Button id={"pagination-previous-btn"} onClick={() => {
+                <Button width={122} id={"pagination-previous-btn"} onClick={() => {
                     getPeopleList(currentPage - 1);
                 }} leftIcon={<ArrowBackIcon/>} colorScheme='green' variant='solid'>
                     Previous
@@ -35,7 +35,7 @@ export default function Pagination({pages, currentPage, getPeopleList}: { pages:
                         ))
                     }
                 </div>
-                <Button id={"pagination-next-btn"} onClick={() => {
+                <Button width={122} id={"pagination-next-btn"} onClick={() => {
                     getPeopleList(currentPage + 1);
                 }} rightIcon={<ArrowForwardIcon/>} colorScheme='green' variant='solid'>
                     Next

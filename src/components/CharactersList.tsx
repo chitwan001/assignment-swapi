@@ -21,10 +21,10 @@ export default function CharactersList() {
             )
         } else {
             return (
-                <SimpleGrid columns={5} spacing={10}>
+                <SimpleGrid columns={5} spacing={5}>
                     {
                         characters.map((character, ind) => (
-                            <CharacterCard key={'character-' + ind} info={character}/>
+                            <CharacterCard personId={((currentPage-1)*10)+(ind+1)} key={'character-' + ind} info={character}/>
                         ))
                     }
                 </SimpleGrid>

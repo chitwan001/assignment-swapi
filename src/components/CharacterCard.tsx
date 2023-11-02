@@ -12,21 +12,23 @@ import {
 } from "@chakra-ui/react";
 import {useNavigate} from "react-router-dom";
 
-export default function CharacterCard({info}: { info: Character }) {
+export default function CharacterCard({info,personId}: { info: Character,personId:number }) {
     const navigator = useNavigate()
     return (
-        <Card cursor={"pointer"} onClick={() => {
-            navigator({pathname:'people/1'})
+        <Card height={"fit-content"} cursor={"pointer"} onClick={() => {
+            navigator({pathname:`people/${personId}`})
         }}>
             <CardBody>
                 <Image
+                    margin={"auto"}
                     src={userImage}
-                    alt='Green double couch with wooden legs'
-                    borderRadius='lg'
+                    alt={info.name}
+                    boxSize={"150px"}
+                    borderRadius="100%"
                 />
                 <Stack mt='6' spacing='3'>
-                    <Heading size='md'>{info.name}</Heading>
-                    <Text color='blue.600' fontSize='md'>
+                    <Heading size='md' placeSelf={"center"}>{info.name}</Heading>
+                    <Text color='blue.600' placeSelf={"center"} fontSize='md'>
                         {info.birth_year}
                         {
                             info.gender !== 'n/a' && (
@@ -34,7 +36,7 @@ export default function CharacterCard({info}: { info: Character }) {
                             )
                         }
                     </Text>
-                    <HStack>
+                    <HStack placeSelf={"center"}>
                         {
                             info.eye_color !== 'n/a' && (
                                 <Tooltip label={'Eye Color - ' + info.eye_color}>
@@ -56,6 +58,7 @@ export default function CharacterCard({info}: { info: Character }) {
                                 </Tooltip>
                             )
                         }
+                        {/*<StarIcon fill={"transparent"} w={6} height={6} placeSelf={"center"}/>*/}
                     </HStack>
                 </Stack>
             </CardBody>
