@@ -13,7 +13,7 @@ export default function PageButton({pageNo, onButtonClick, currentPage}: { pageN
 
     return (
 
-        <Button ref={buttonRef} onClick={onButtonClick} textColor={"white"} colorScheme={"purple"} variant='solid'>
+        <Button ref={buttonRef} onClick={onButtonClick} textColor={"darkBlue.800"} colorScheme={"gray"} variant='solid'>
             {pageNo.toString()}
         </Button>
 

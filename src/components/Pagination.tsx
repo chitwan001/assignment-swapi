@@ -23,7 +23,7 @@ export default function Pagination({pages, currentPage, getPeopleList}: { pages:
             <div className={'pagination'}>
                 <Button width={122} id={"pagination-previous-btn"} onClick={() => {
                     getPeopleList(currentPage - 1);
-                }} leftIcon={<ArrowBackIcon/>} colorScheme='green' variant='solid'>
+                }} leftIcon={<ArrowBackIcon/>} colorScheme='darkBlue' variant='solid'>
                     Previous
                 </Button>
                 <div className={'pagenumbers'}>
@@ -37,7 +37,7 @@ export default function Pagination({pages, currentPage, getPeopleList}: { pages:
                 </div>
                 <Button width={122} id={"pagination-next-btn"} onClick={() => {
                     getPeopleList(currentPage + 1);
-                }} rightIcon={<ArrowForwardIcon/>} colorScheme='green' variant='solid'>
+                }} rightIcon={<ArrowForwardIcon/>} colorScheme='darkBlue' variant='solid'>
                     Next
                 </Button>
             </div>
