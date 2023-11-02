@@ -38,7 +38,7 @@ export default function FilmCard({filmUrl}: { filmUrl: string }) {
         }
     }
     return (
-        <Card placeSelf={'center'} minHeight={"200px"} maxHeight={'fit-content'} w={"200px"}>
+        <Card height={"100%"} placeSelf={'center'} minHeight={"200px"} maxHeight={'fit-content'} w={"200px"}>
             <CardBody>
                 <RenderFilm/>
             </CardBody>

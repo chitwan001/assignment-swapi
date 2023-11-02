@@ -18,7 +18,7 @@ export default function CharacterCard({info,personId}: { info: Character,personI
         <Card height={"fit-content"} cursor={"pointer"} onClick={() => {
             navigator({pathname:`people/${personId}`})
         }}>
-            <CardBody>
+            <CardBody padding={"1rem"}>
                 <Image
                     margin={"auto"}
                     src={userImage}

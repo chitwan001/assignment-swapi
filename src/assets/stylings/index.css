@@ -12,14 +12,14 @@
 
 .header{
     display: grid;
-    grid-template-columns: 5fr 1fr;
     width: 100%;
     background-color: #012652;
 }
 
 .header-title{
+    padding-left: 20px ;
+    padding-right: 20px ;
     display: grid;
-    place-self: center;
     grid-auto-flow: column;
     gap: 8px;
 }
@@ -29,6 +29,8 @@
     font-size: 20px;
     font-weight: bold;
     color: #fff;
+    justify-self: start;
+    align-self: center;
     place-content: center;
 }
 
@@ -36,12 +38,14 @@
     display: grid;
     color: #fff;
     font-size: 15px;
+    justify-self: end;
+    align-self: center;
     place-content: center;
 }
 
 .characters-list-parent{
     display: grid;
-    overflow-y: scroll;
+    overflow-y: hidden;
     padding: 10px;
 }
 
@@ -110,7 +114,6 @@
 
 .character-info-parent{
     display: grid;
-    grid-template-columns: 150px 1fr;
 }
 
 .character-films{
@@ -122,10 +125,11 @@
 .films-parent{
     display: grid;
     grid-auto-flow: column;
-    gap: 10px;
-    max-width: 1000px;
+    gap: 18px;
     overflow-x: scroll;
     margin: 8px;
+    align-self: start;
+    justify-self: center;
 }
 
 .loader-parent{
@@ -141,7 +145,7 @@
 
 .back-button{
     display: grid;
-    justify-self: center;
+    margin-left: 8px;
     margin-top: 8px;
 }
 
@@ -152,4 +156,10 @@
 .outlet{
     display: grid;
     grid-template-rows: calc(100vh - 125px) auto;
+}
+
+.character-basic-details{
+    display: grid;
+    grid-auto-flow: column;
+    place-self: center;
 }
