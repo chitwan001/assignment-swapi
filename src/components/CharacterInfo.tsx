@@ -4,8 +4,20 @@ import {useApi} from "../context/ApiContext.tsx";
 import {Character} from "../types/Character.tsx";
 import ListLoader from "./ListLoader.tsx";
 import userImage from '../assets/sampleuser.avif';
-import {Button, Card, CardBody, CardFooter, Image, Text, Heading, Stack} from "@chakra-ui/react";
+import {
+    Button,
+    Card,
+    CardBody,
+    Image,
+    Text,
+    Heading,
+    Stack,
+    VStack,
+    Tooltip,
+    HStack
+} from "@chakra-ui/react";
 import {ArrowBackIcon} from "@chakra-ui/icons";
+import Films from "./Films.tsx";
 
 export default function CharacterInfo() {
     const [userData, setUserData] = useState<Character | null>(null)
@@ -42,33 +54,64 @@ export default function CharacterInfo() {
                     <div className={'character-info'}>
                         <Card
                             direction={{base: 'column', sm: 'row'}}
+                            w={"100%"}
                             overflow='hidden'
                             variant='outline'
                         >
-                            <Image
-                                objectFit='cover'
-                                w={300}
-                                margin={"30px"}
-                                h={300}
-                                src={userImage}
-                                alt='Caffe Latte'
-                            />
+                            <VStack justifyContent={"start"}>
+                                <HStack>
+                                    <Image
+                                        objectFit='cover'
+                                        w={300}
+                                        marginTop={"30px"}
+                                        marginLeft={"30px"}
+                                        h={300}
+                                        src={userImage}
+                                        alt='Caffe Latte'
+                                    />
 
-                            <Stack>
-                                <CardBody marginTop={"30px"} >
-                                    <Heading size='lg'>{userData?.name}</Heading>
+                                    <Stack>
+                                        <CardBody marginTop={"30px"}>
+                                            <Heading size='lg'>{userData?.name}</Heading>
 
-                                    <Text size={'md'} py='2'>
-                                        {userData?.birth_year}, {userData?.mass}kg, {userData?.height}cm
-                                    </Text>
-                                </CardBody>
+                                            <Text size={'md'} py='2'>
+                                                {userData?.birth_year}, {userData?.mass}kg, {userData?.height}cm
+                                            </Text>
 
-                                <CardFooter>
-                                    <Button variant='solid' colorScheme='blue'>
-                                        Buy Latte
-                                    </Button>
-                                </CardFooter>
-                            </Stack>
+                                            <VStack w={'fit-content'}>
+                                                {
+                                                    userData?.eye_color !== 'n/a' && (
+                                                        <Tooltip label={'Eye Color - ' + userData?.eye_color}>
+                                                            <Button backgroundColor={userData?.eye_color} width={"4px"} borderRadius={8}/>
+                                                        </Tooltip>
+                                                    )
+                                                }
+                                                {
+                                                    userData?.hair_color !== 'n/a' && (
+                                                        <Tooltip label={'Hair Color - ' + userData?.hair_color}>
+                                                            <Button backgroundColor={userData?.hair_color} width={"4px"} borderRadius={8}/>
+                                                        </Tooltip>
+                                                    )
+                                                }
+                                                {
+                                                    userData?.skin_color !== 'n/a' && (
+                                                        <Tooltip label={'Skin Color - ' + userData?.skin_color}>
+                                                            <Button backgroundColor={userData?.skin_color} width={"4px"} borderRadius={8}/>
+                                                        </Tooltip>
+                                                    )
+                                                }
+                                            </VStack>
+                                        </CardBody>
+                                    </Stack>
+                                </HStack>
+                                <div className={'character-films'}>
+                                    {
+                                        userData?.films && (
+                                            <Films films={userData.films}/>
+                                        )
+                                    }
+                                </div>
+                            </VStack>
                         </Card>
                     </div>
                 </div>

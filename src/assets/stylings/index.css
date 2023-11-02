@@ -113,6 +113,27 @@
     grid-template-columns: 150px 1fr;
 }
 
+.character-films{
+    display: grid;
+    width: 100%;
+    height: 100%;
+}
+
+.films-parent{
+    display: grid;
+    grid-auto-flow: column;
+    gap: 10px;
+    max-width: 1000px;
+    overflow-x: scroll;
+    margin: 8px;
+}
+
+.loader-parent{
+    display: grid;
+    width: 100%;
+    height: 100%;
+}
+
 .character-info{
     display: grid;
     margin: 10px;
